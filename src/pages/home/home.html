@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{viewUserName}} 歡迎</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>{{mypeerid}}</h1>
+      <ion-card>
+        <ion-card-content>
+            <!--<video id="my-video" muted="true" autoplay></video>-->
+            <video #myvideo></video>
+        </ion-card-content>
+    </ion-card>
+    <ion-item *ngFor="let user of users | async" 
+        item="item" (click)="startCall(user.userName,user.peerID)">
+        {{user.userName}} - {{user.$key}}</ion-item>
+
+     <button ion-button full (click)="videoconnect()">開始通話</button>
+     <button ion-button full (click)="stopCall(viewUserName)">結束通話</button>
+<!--<button ion-button (click)="startCall()">Call</button>
+<button ion-button (click)="stopCall()">Drop</button>-->
+</ion-content>

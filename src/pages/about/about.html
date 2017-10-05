@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label fixed>名稱</ion-label>
+    <ion-input type="text" [(ngModel)]="name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>密碼</ion-label>
+    <ion-input type="text" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <p>
+    <button ion-button round (click)="addUser(name)">新增</button>
+    <ion-item *ngFor="let user of users | async">
+      <h1>{{user.userName}}</h1>
+    </ion-item>
+</ion-content>
